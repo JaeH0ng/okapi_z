@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 사용자 인증을 관리
 class AuthStatus extends StateNotifier<bool> {
-  AuthStatus() : super(false);
+  AuthStatus() : super(false); // 기존값 : false
 
   void signIn() {
     state = true;

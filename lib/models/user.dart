@@ -6,34 +6,46 @@ class User extends Equatable {
   String email;
   String name;
   String birth;
+  String gender;
+  String country;
+  String ageRange;
   String password;
   String schoolName;
-  String schoolPlaceId;
+  String profileImagePath;
 
   User({
     required this.email,
     required this.name,
     required this.birth,
+    required this.gender,
+    required this.country,
+    required this.ageRange,
     required this.password,
     required this.schoolName,
-    required this.schoolPlaceId,
+    required this.profileImagePath,
   });
 
   User copyWith({
     String? email,
     String? name,
     String? birth,
+    String? gender,
+    String? country,
+    String? ageRange,
     String? password,
     String? schoolName,
-    String? schoolPlaceId,
+    String? profileImagePath,
   }) {
     return User(
       email: email ?? this.email,
       name: name ?? this.name,
       birth: birth ?? this.birth,
+      gender: gender ?? this.gender,
+      country: country ?? this.country,
+      ageRange: ageRange ?? this.ageRange,
       password: password ?? this.password,
       schoolName: schoolName ?? this.schoolName,
-      schoolPlaceId: schoolPlaceId ?? this.schoolPlaceId,
+      profileImagePath: profileImagePath ?? this.profileImagePath,
     );
   }
 
@@ -42,9 +54,12 @@ class User extends Equatable {
       'email': email,
       'name': name,
       'birth': birth,
+      'gender': gender,
+      'country': country,
+      'ageRange': ageRange,
       'password': password,
       'schoolName': schoolName,
-      'schoolPlaceId': schoolPlaceId,
+      'profileImagePath': profileImagePath,
     };
   }
 
@@ -53,9 +68,12 @@ class User extends Equatable {
       email: map['email'] ?? '',
       name: map['name'] ?? '',
       birth: map['birth'] ?? '',
+      gender: map['gender'] ?? '',
+      country: map['country'] ?? '',
+      ageRange: map['ageRange'] ?? '',
       password: map['password'] ?? '',
       schoolName: map['schoolName'] ?? '',
-      schoolPlaceId: map['schoolPlaceId'] ?? '',
+      profileImagePath: map['profileImagePath'] ?? '',
     );
   }
 
@@ -65,7 +83,7 @@ class User extends Equatable {
 
   @override
   String toString() {
-    return 'User(email: $email, name: $name, birth: $birth, password: $password, schoolName: $schoolName, schoolPlaceId: $schoolPlaceId)';
+    return 'User(email: $email, name: $name, birth: $birth, gender: $gender, country: $country, ageRange: $ageRange, password: $password, schoolName: $schoolName, profileImagePath: $profileImagePath)';
   }
 
   @override
@@ -74,9 +92,12 @@ class User extends Equatable {
       email,
       name,
       birth,
+      gender,
+      country,
+      ageRange,
       password,
       schoolName,
-      schoolPlaceId,
+      profileImagePath,
     ];
   }
 }
