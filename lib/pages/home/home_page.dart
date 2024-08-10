@@ -9,6 +9,7 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentIndex = ref.watch(bottomNavProvider);
     return Scaffold(
+      // this change, Hisku
       appBar: AppBar(
         title: const Text('Home'),
       ),
