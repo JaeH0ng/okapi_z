@@ -12,28 +12,72 @@ class HomePage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
+      // this change, Jay
+
       body: IndexedStack(
         index: currentIndex,
         children: const [
-          Center(child: Text('Home')),
-          Center(child: Text('Create')),
-          Center(child: Text('Chat')),
-          Center(child: Text('Profile')),
-          Center(child: Text('More')),
+          Center(
+              child: Text(
+            'Home',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          )),
+          Center(
+              child: Text(
+            'Create',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          )),
+          Center(
+              child: Text(
+            'Chat',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          )),
+          Center(
+              child: Text(
+            'Profile',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          )),
+          Center(
+              child: Text(
+            'More',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          )),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedLabelStyle:
+            TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+        selectedItemColor: Colors.black,
         currentIndex: currentIndex,
         onTap: (index) {
           // 상태 업데이트: 선택된 인덱스로 상태를 업데이트합니다.
           ref.read(bottomNavProvider.notifier).update((state) => index);
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Create'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-          BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: 'More'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: Colors.black,
+              ),
+              label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add, color: Colors.black), label: 'Create'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.chat, color: Colors.black), label: 'Chat'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person, color: Colors.black), label: 'Profile'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.more_horiz, color: Colors.black), label: 'More'),
         ],
       ),
     );
