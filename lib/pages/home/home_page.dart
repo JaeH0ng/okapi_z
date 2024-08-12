@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:okapi_z/pages/home/home_providers/bottom_navigation_provider.dart';
+import 'package:okapi_z/pages/widgets/adventure_type_filter.dart';
+import 'package:okapi_z/pages/widgets/search_field.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -8,42 +10,49 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentIndex = ref.watch(bottomNavProvider);
+    final searchController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
       ),
       body: IndexedStack(
         index: currentIndex,
-        children: const [
-          Center(
-              child: Text(
-            'Home',
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          )),
-          Center(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SearchField(
+                controller: searchController,
+                icon: Icons.calendar_month_rounded,
+                hintText: 'Search',
+              ),
+              AdventureTypeSelector(onSelected: (index) {
+                print('Selected index: $index');
+              }),
+            ],
+          ),
+          const Center(
               child: Text(
             'Create',
             style: TextStyle(
               color: Colors.black,
             ),
           )),
-          Center(
+          const Center(
               child: Text(
             'Chat',
             style: TextStyle(
               color: Colors.black,
             ),
           )),
-          Center(
+          const Center(
               child: Text(
             'Profile',
             style: TextStyle(
               color: Colors.black,
             ),
           )),
-          Center(
+          const Center(
               child: Text(
             'More',
             style: TextStyle(
