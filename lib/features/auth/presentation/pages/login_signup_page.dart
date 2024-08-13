@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:okapi_z/core/constants/palatte.dart';
 import 'package:okapi_z/features/auth/data/models/user.dart';
+import 'package:okapi_z/features/auth/data/models/user_model.dart';
 import 'package:okapi_z/features/home/presentation/home_page.dart';
 import 'package:okapi_z/features/auth/presentation/widgets/auth_form.dart';
 import 'package:okapi_z/features/auth/data/providers/auth_provider.dart';
@@ -24,6 +25,60 @@ class LoginSignupScreen extends ConsumerWidget {
     // 화면 크기 정보 가져오기
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+
+    final UserRepository userRepository = UserRepository();
+
+    void signUp(BuildContext context) async {
+      final email = emailController.text.trim();
+      final name = nameController.text.trim();
+      final password = passwordController.text.trim();
+      final schoolName = schoolNameController.text.trim();
+
+      if (email.isNotEmpty && name.isNotEmpty && password.isNotEmpty) {
+        try {
+          final newUser = await userRepository.register(
+            UserModel(
+              userId: 0,
+              email: email,
+              name: name,
+              profileImagePath: '',
+            ),
+            password,
+          );
+          // Navigate to the home page on successful signup
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage(user: newUser)),
+          );
+        } catch (e) {
+          // Handle signup error
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error: ${e.toString()}')),
+          );
+        }
+      }
+    }
+
+    void signIn(BuildContext context) async {
+      final email = emailController.text.trim();
+      final password = passwordController.text.trim();
+
+      if (email.isNotEmpty && password.isNotEmpty) {
+        try {
+          final user = await userRepository.login(email, password);
+          // Navigate to the home page on successful login
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage(user: user)),
+          );
+        } catch (e) {
+          // Handle login error
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error: ${e.toString()}')),
+          );
+        }
+      }
+    }
 
     return Scaffold(
       backgroundColor: Palette.backgroundColor,
@@ -48,204 +103,44 @@ class LoginSignupScreen extends ConsumerWidget {
                         // 환영 메시지
                         RichText(
                           text: TextSpan(
-                            text: 'Welcome',
+                            text: isSignupScreen
+                                ? 'Welcome to '
+                                : 'Welcome back, ',
                             style: TextStyle(
-                                letterSpacing: 1.0,
-                                fontSize: screenWidth * 0.06,
-                                color: Colors.white),
+                              fontSize: 25,
+                              color: Colors.black,
+                            ),
                             children: [
                               TextSpan(
-                                text: isSignupScreen ? ' to okapi-z!' : ' back',
+                                text: isSignupScreen ? 'Sign Up' : 'Sign In',
                                 style: TextStyle(
-                                  letterSpacing: 1.0,
-                                  fontSize: screenWidth * 0.06,
-                                  color: Colors.white,
+                                  fontSize: 30,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.black,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: screenHeight * 0.01,
-                        ),
-                        // 로그인 또는 회원가입 설명
-                        Text(
-                          isSignupScreen
-                              ? 'Signup to continue'
-                              : 'Signin to continue',
-                          style: TextStyle(
-                            letterSpacing: 1.0,
-                            color: Colors.white,
-                            fontSize: screenWidth * 0.04,
-                          ),
-                        ),
                       ],
                     ),
                   ),
                 ),
               ),
-              // 로그인 및 회원가입 폼 애니메이션 컨테이너
-              AnimatedPositioned(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeIn,
+              // 로그인/회원가입 폼
+              Positioned(
                 top: screenHeight * 0.25,
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeIn,
-                  padding: const EdgeInsets.all(20.0),
-                  width: screenWidth - 40,
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
-                          blurRadius: 15,
-                          spreadRadius: 5),
-                    ],
-                  ),
-                  child: IntrinsicHeight(
-                    child: Column(
-                      children: [
-                        // 로그인 및 회원가입 전환 버튼
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                ref.read(authProvider.notifier).toggle();
-                              },
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'LOGIN',
-                                    style: TextStyle(
-                                        fontSize: screenWidth * 0.02,
-                                        fontWeight: FontWeight.bold,
-                                        color: !isSignupScreen
-                                            ? Palette.activeColor
-                                            : Palette.textColor1),
-                                  ),
-                                  if (!isSignupScreen)
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 3),
-                                      height: 2,
-                                      width: screenWidth * 0.15,
-                                      color: Colors.orange,
-                                    )
-                                ],
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                ref.read(authProvider.notifier).toggle();
-                              },
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'SIGNUP',
-                                    style: TextStyle(
-                                        fontSize: screenWidth * 0.02,
-                                        fontWeight: FontWeight.bold,
-                                        color: isSignupScreen
-                                            ? Palette.activeColor
-                                            : Palette.textColor1),
-                                  ),
-                                  if (isSignupScreen)
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 3),
-                                      height: 2,
-                                      width: screenWidth * 0.15,
-                                      color: Colors.orange,
-                                    )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                        // 회원가입 및 로그인 폼
-                        Expanded(
-                          child: SingleChildScrollView(
-                            child: AuthForm(
-                              isSignupScreen: isSignupScreen,
-                              emailController: emailController,
-                              nameController: nameController,
-                              countryController: countryController,
-                              passwordController: passwordController,
-                              schoolNameController: schoolNameController,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              // 전송 버튼
-              AnimatedPositioned(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeIn,
-                top: isSignupScreen ? screenHeight * 0.95 : screenHeight * 0.5,
-                right: 0,
-                left: 0,
-                child: Center(
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    height: screenWidth * 0.1,
-                    width: screenWidth * 0.1,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(50)),
-                    child: GestureDetector(
-                      onTap: () {
-                        if (isSignupScreen) {
-                          // 사용자 정보 저장 요청
-                          signUp(
-                            context,
-                            emailController.text,
-                            nameController.text,
-                            '', // 생년월일은 AuthForm 내에서 처리되므로 여기에 추가하지 않음
-                            '', // 성별은 AuthForm 내에서 처리되므로 여기에 추가하지 않음
-                            countryController.text,
-                            '', // 연령대는 AuthForm 내에서 처리되므로 여기에 추가하지 않음
-                            passwordController.text,
-                            schoolNameController.text,
-                            '', // 프로필 이미지 경로는 AuthForm 내에서 처리되므로 여기에 추가하지 않음
-                          );
-                        } else {
-                          // 로그인 로직 추가 (추후 구현)
-                          signIn(
-                            context,
-                            emailController.text,
-                            passwordController.text,
-                          );
-                        }
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                              colors: [Colors.orange, Colors.red],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight),
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.3),
-                              spreadRadius: 1,
-                              blurRadius: 1,
-                              offset: const Offset(0, 1),
-                            ),
-                          ],
-                        ),
-                        child: const Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
+                right: screenWidth * 0.05,
+                left: screenWidth * 0.05,
+                child: AuthForm(
+                  isSignupScreen: isSignupScreen,
+                  emailController: emailController,
+                  nameController: nameController,
+                  countryController: countryController,
+                  passwordController: passwordController,
+                  schoolNameController: schoolNameController,
+                  onSignIn: () => signIn(context),
+                  onSignUp: () => signUp(context),
                 ),
               ),
             ],
@@ -253,47 +148,5 @@ class LoginSignupScreen extends ConsumerWidget {
         ),
       ),
     );
-  }
-
-  // 사용자 정보 저장을 위한 로컬 데이터베이스 요청 함수
-  void signUp(
-    BuildContext context,
-    String email,
-    String name,
-    String birth,
-    String gender,
-    String country,
-    String ageRange,
-    String password,
-    String schoolName,
-    String profileImagePath,
-  ) {
-    User user = User(
-      email: email,
-      name: name,
-      birth: birth,
-      gender: gender,
-      country: country,
-      ageRange: ageRange,
-      password: password,
-      schoolName: schoolName,
-      profileImagePath: profileImagePath,
-    );
-
-    userDatabase.addUser(user);
-    print('Signup successful');
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const HomePage()));
-  }
-
-  // 로그인 요청 함수
-  void signIn(BuildContext context, String email, String password) {
-    if (userDatabase.authenticateUser(email, password)) {
-      print('Login successful');
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const HomePage()));
-    } else {
-      print('Login failed');
-    }
   }
 }
