@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:okapi_z/config/palatte.dart';
+import 'package:okapi_z/1_config/palatte.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:okapi_z/config/palatte.dart';
-import 'package:okapi_z/models/user.dart';
-import 'package:okapi_z/pages/home/home_page.dart';
-import 'package:okapi_z/pages/login_signup/login_signup_widgets/auth_form.dart';
-import 'package:okapi_z/pages/login_signup/providers/auth_provider.dart';
-import 'package:okapi_z/repositories/user_database.dart';
+import 'package:okapi_z/1_config/palatte.dart';
+import 'package:okapi_z/1_models/user.dart';
+import 'package:okapi_z/1_pages/home/home_page.dart';
+import 'package:okapi_z/1_pages/login_signup/login_signup_widgets/auth_form.dart';
+import 'package:okapi_z/1_pages/login_signup/providers/auth_provider.dart';
+import 'package:okapi_z/1_repositories/user_database.dart';
 
 class LoginSignupScreen extends ConsumerWidget {
   const LoginSignupScreen({super.key});

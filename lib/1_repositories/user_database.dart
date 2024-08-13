@@ -1,4 +1,4 @@
-import 'package:okapi_z/models/user.dart';
+import 'package:okapi_z/1_models/user.dart';
 
 class UserDatabase {
   final List<User> _users = [];
