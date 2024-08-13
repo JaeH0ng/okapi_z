@@ -35,8 +35,7 @@ CustomTextField(
 ``` 
 lib/
 │
-├── core/       
-│   ├── icons - icon_print.js : 이 파일로 아이콘 SVG 코드 출력해서 아이콘 사용할 것          
+├── core/                
 │   ├── constants/        # 앱 전역에서 사용되는 상수들
 │   ├── themes/           # 앱의 테마와 스타일 정의
 │   ├── utils/            # 공통적으로 사용하는 유틸리티 함수들
@@ -97,4 +96,72 @@ lib/
 │
 ├── app.dart               # 앱 전체 구조와 라우팅 설정
 └── main.dart              # 앱의 진입점
+```
+
+## About Folder Structure
+```
+lib/
+│
+├── core/           
+│   ├── constants/        # Constants used globally across the app
+│   ├── themes/           # Defines the app's theme and style
+│   ├── utils/            # Common utility functions
+│   └── widgets/          # Reusable widgets
+│
+├── features/              # Grouped by features
+│   ├── auth/              # Authentication feature
+│   │   ├── data/          # Data layer (models, data sources, repositories)
+│   │   │   ├── models/    # Defines user models
+│   │   │   ├── repositories/ # Repositories related to user authentication
+│   │   │   └── providers/  # Riverpod Providers (state management)
+│   │   ├── domain/        # Domain layer (entities, use cases)
+│   │   │   ├── entities/  # User entities
+│   │   │   └── usecases/  # User authentication logic (sign-up, login)
+│   │   ├── presentation/  # Presentation layer (UI)
+│   │   │   ├── pages/     # Login and sign-up page UIs
+│   │   │   ├── viewmodels/ # Login and sign-up ViewModel
+│   │   │   └── widgets/   # Widgets related to login and sign-up
+│   │
+│   ├── adventure/         # Adventure feature
+│   │   ├── data/          
+│   │   │   ├── models/    # Defines Adventure, Comment, Like, Participant models
+│   │   │   ├── repositories/ # Repositories related to Adventure
+│   │   │   └── providers/  # Riverpod Providers (state management)
+│   │   ├── domain/        
+│   │   │   ├── entities/  # Adventure entities
+│   │   │   └── usecases/  # Use cases for creating, editing, and deleting Adventures
+│   │   ├── presentation/  
+│   │   │   ├── pages/     # Adventure list and detail page UIs
+│   │   │   ├── viewmodels/ # Adventure ViewModel
+│   │   │   └── widgets/   # Widgets related to Adventure
+│   │
+│   ├── chat/              # Chat feature
+│   │   ├── data/          
+│   │   │   ├── models/    # Defines ChatRoom, ChatMessage models
+│   │   │   ├── repositories/ # Repositories related to chat messages
+│   │   │   └── providers/  # Riverpod Providers (state management)
+│   │   ├── domain/        
+│   │   │   ├── entities/  # ChatRoom, ChatMessage entities
+│   │   │   └── usecases/  # Use cases for sending and retrieving chat messages
+│   │   ├── presentation/  
+│   │   │   ├── pages/     # Chat room page UI
+│   │   │   ├── viewmodels/ # Chat ViewModel
+│   │   │   └── widgets/   # Widgets related to chat
+│   │
+│   ├── location_search/    # Location search feature
+│   │   ├── data/          
+│   │   │   ├── models/    # Defines Location model
+│   │   │   ├── repositories/ # Repositories related to location search
+│   │   │   └── providers/  # Riverpod Providers (state management)
+│   │   ├── domain/        
+│   │   │   ├── entities/  # Location entities
+│   │   │   └── usecases/  # Use cases for location search
+│   │   ├── presentation/  
+│   │   │   ├── pages/     # Location search page UI
+│   │   │   ├── viewmodels/ # Location search ViewModel
+│   │   │   └── widgets/   # Widgets related to location search
+│
+├── app.dart               # App structure and routing settings
+└── main.dart              # Entry point of the app
+
 ```
