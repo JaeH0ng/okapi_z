@@ -17,7 +17,6 @@
 - `MaterialApp`이 구성되는 메인 애플리케이션 위젯으로, 라우팅과 테마 설정 등을 담당합니다.
 
 ### main.dart
-- Flutter 애플리케이션의 진입점으로, `runApp()`을 호출하는 곳입니다.
 
 
 ## Description of Folders
@@ -37,4 +36,4 @@
 - The main application widget where `MaterialApp` is configured, along with routing and theming.
 
 ### main.dart
-- The entry point of the Flutter application, where `runApp()` is called.
+
