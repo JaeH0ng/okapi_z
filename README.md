@@ -1,4 +1,10 @@
 # okapi_z
+폴더 생성이 필요한 경우, 다음의 코드 입력
+```
+FOLD_DIR="home" // home을 원하는 폴더 이름으로 변경
+mkdir -p $FOLD_DIR/data $FOLD_DIR/domain $FOLD_DIR/presentation/pages $FOLD_DIR/presentation/viewmodels $FOLD_DIR/presentation/widgets
+
+```
 
 ## 폴더 설명
 
@@ -6,7 +12,7 @@
 lib/
 │
 ├── features/              # 기능별로 그룹화
-│   ├── auth/              # 예: 인증 기능
+│   ├── auth/              # 인증 기능
 │   │   ├── data/          # 모델, 데이터 소스, 레포지토리
 │   │   │   ├── models/
 │   │   │   ├── repositories/                           // 필요 : 로그인, 회원가입 API 요청 처리 기능
@@ -14,18 +20,18 @@ lib/
 │   │   ├── domain/        # 비즈니스 로직, 유스케이스      // 어떻게 활용하는 폴더일지? 좀더 확인 필요
 │   │   │   ├── entities/
 │   │   │   └── usecases/
-│   │   ├── presentation/  # UI와 관련된 코드
+│   │   ├── presentation/  # 로그인, 회원가입 UI
 │   │   │   ├── pages/
 │   │   │   ├── viewmodels/
 │   │   │   └── widgets/
-│   ├── home/              # 예: 홈 기능
+│   ├── home/              # 홈 탭
 │   │   ├── data/
 │   │   ├── domain/
 │   │   ├── presentation/
 │   │   │   ├── pages/
 │   │   │   ├── viewmodels/
 │   │   │   └── widgets/
-│   └── settings/          # 예: 설정 기능
+│   └── settings/          # 설정 탭
 │       ├── data/
 │       ├── domain/
 │       ├── presentation/
@@ -51,29 +57,29 @@ lib/
 lib/
 │
 ├── features/              # Grouped by functionality
-│   ├── auth/              # Example: Authentication feature
-│   │   ├── data/          # Models, data sources, repositories
+│   ├── auth/              # Authentication
+│   │   ├── data/          
 │   │   │   ├── models/
 │   │   │   ├── repositories/
 │   │   │   └── providers/
 │   │   ├── domain/        # Business logic, use cases
 │   │   │   ├── entities/
 │   │   │   └── usecases/
-│   │   ├── presentation/  # UI-related code
+│   │   ├── presentation/  # Signup, Signin UI
 │   │   │   ├── pages/
 │   │   │   │   └── login_page.dart
 │   │   │   ├── viewmodels/
 │   │   │   │   └── login_viewmodel.dart
 │   │   │   └── widgets/
 │   │   │       └── login_form.dart
-│   ├── home/              # Example: Home feature
+│   ├── home/              # Home tab
 │   │   ├── data/
 │   │   ├── domain/
 │   │   ├── presentation/
 │   │   │   ├── pages/
 │   │   │   ├── viewmodels/
 │   │   │   └── widgets/
-│   └── settings/          # Example: Settings feature
+│   └── settings/          # Setting tab
 │       ├── data/
 │       ├── domain/
 │       ├── presentation/
