@@ -2,7 +2,7 @@
 
 ## 폴더 설명
 
-\``` 
+``` 
 lib/
 │
 ├── features/              # 기능별로 그룹화
@@ -44,13 +44,13 @@ lib/
 │
 ├── app.dart               # 앱 위젯 (MaterialApp, Route 설정)
 └── main.dart              # 메인 진입점
-\```
+```
 
 
 
 ## Description of Folders
 
-\```
+```
 lib/
 │
 ├── features/              # Grouped by functionality
@@ -92,4 +92,4 @@ lib/
 │
 ├── app.dart               # App widget (MaterialApp, route settings)
 └── main.dart              # Main entry point
-\```
+```
