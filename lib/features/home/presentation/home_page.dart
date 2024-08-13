@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:okapi_z/1_pages/home/home_providers/bottom_navigation_provider.dart';
-import 'package:okapi_z/1_pages/widgets/adventure_type_filter.dart';
-import 'package:okapi_z/1_pages/widgets/search_field.dart';
+import 'package:okapi_z/features/home/data/providers/bottom_navigation_provider.dart';
+import 'package:okapi_z/features/auth/presentation/widgets/adventure_type_filter.dart';
+import 'package:okapi_z/features/auth/presentation/widgets/search_field.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

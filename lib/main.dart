@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:okapi_z/1_pages/home/home_page.dart';
-import 'package:okapi_z/1_pages/login_signup/login_signup_page.dart';
-import 'package:okapi_z/1_pages/login_signup/providers/authStatus.dart';
+import 'package:okapi_z/features/home/presentation/home_page.dart';
+import 'package:okapi_z/features/auth/presentation/pages/login_signup_page.dart';
+import 'package:okapi_z/features/auth/data/providers/authStatus.dart';
 
 void main() {
   runApp(

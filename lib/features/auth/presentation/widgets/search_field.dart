@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:okapi_z/1_config/palatte.dart';
+import 'package:okapi_z/core/constants/palatte.dart';
 
-class CustomTextField extends StatelessWidget {
+class SearchField extends StatelessWidget {
   final TextEditingController controller;
   final IconData icon;
   final String hintText;
-  final bool obscureText;
 
-  const CustomTextField({
+  const SearchField({
     super.key,
     required this.controller,
     required this.icon,
     required this.hintText,
-    this.obscureText = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      obscureText: obscureText,
       decoration: InputDecoration(
-        prefixIcon: Icon(
+        suffixIcon: Icon(
           icon,
           color: Palette.iconColor,
         ),

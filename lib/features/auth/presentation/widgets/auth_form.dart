@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:okapi_z/1_pages/widgets/custom_text_field.dart';
+import 'package:okapi_z/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 

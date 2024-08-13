@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AdventureTypeSelector extends StatefulWidget {
   final ValueChanged<int> onSelected;
 
-  AdventureTypeSelector({required this.onSelected});
+  const AdventureTypeSelector({required this.onSelected});
 
   @override
   _AdventureTypeSelectorState createState() => _AdventureTypeSelectorState();

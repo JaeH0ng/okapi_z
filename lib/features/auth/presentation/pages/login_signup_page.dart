@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:okapi_z/1_config/palatte.dart';
-import 'package:okapi_z/1_models/user.dart';
-import 'package:okapi_z/1_pages/home/home_page.dart';
-import 'package:okapi_z/1_pages/login_signup/login_signup_widgets/auth_form.dart';
-import 'package:okapi_z/1_pages/login_signup/providers/auth_provider.dart';
-import 'package:okapi_z/1_repositories/user_database.dart';
+import 'package:okapi_z/core/constants/palatte.dart';
+import 'package:okapi_z/features/auth/data/models/user.dart';
+import 'package:okapi_z/features/home/presentation/home_page.dart';
+import 'package:okapi_z/features/auth/presentation/widgets/auth_form.dart';
+import 'package:okapi_z/features/auth/data/providers/auth_provider.dart';
+import 'package:okapi_z/features/auth/data/repositories/user_database.dart';
 
 class LoginSignupScreen extends ConsumerWidget {
   const LoginSignupScreen({super.key});
@@ -283,7 +283,7 @@ class LoginSignupScreen extends ConsumerWidget {
     userDatabase.addUser(user);
     print('Signup successful');
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
   }
 
   // 로그인 요청 함수
@@ -291,7 +291,7 @@ class LoginSignupScreen extends ConsumerWidget {
     if (userDatabase.authenticateUser(email, password)) {
       print('Login successful');
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+          context, MaterialPageRoute(builder: (context) => const HomePage()));
     } else {
       print('Login failed');
     }
