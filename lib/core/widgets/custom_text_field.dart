@@ -3,7 +3,7 @@ import 'package:okapi_z/core/constants/palatte.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
-  final IconData icon;
+  final Widget icon; // IconData 대신 Widget으로 수정
   final String hintText;
   final bool obscureText;
 
@@ -21,10 +21,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
-        prefixIcon: Icon(
-          icon,
-          color: Palette.iconColor,
-        ),
+        prefixIcon: icon, // Icon 위젯 대신, 전달된 위젯을 사용
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Palette.textColor1),
           borderRadius: BorderRadius.all(Radius.circular(35.0)),

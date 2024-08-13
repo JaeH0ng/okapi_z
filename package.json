@@ -1,0 +1,9 @@
+{
+  "type": "module",  
+  "dependencies": {
+    "@icon-park/svg": "^1.4.2"
+  },
+  "scripts": {
+    "start": "node icon_print.js" 
+  }
+}

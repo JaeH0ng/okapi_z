@@ -1,17 +1,42 @@
 # okapi_z
-폴더 생성이 필요한 경우, 다음의 코드 입력
+## if you need to make new folder, use this code.
 ```
 FOLD_DIR="home" // home을 원하는 폴더 이름으로 변경
 mkdir -p $FOLD_DIR/data $FOLD_DIR/domain $FOLD_DIR/presentation/pages $FOLD_DIR/presentation/viewmodels $FOLD_DIR/presentation/widgets
 
 ```
+## How to use Icon?(icons has been already uploaded)
+- we can also use 'icon_print.js' file which can get the SVG code of the icon.
+- If you want to search 'Home' Icon, type this at the terminal screen.
+```
+node icon_print.js Home
+```
+- then file will be automatically created at "assets/icons/" folder.
+
+- if you watn to use icon, you can use like this way
+```
+import 'package:flutter_svg/svg.dart';
+// ...
+CustomTextField(
+  controller: widget.emailController,
+  icon: SvgPicture.asset(
+    'assets/icons/email.svg', // SVG 아이콘 사용
+    width: 24,
+    height: 24,
+  ),
+  hintText: 'Email',
+),
+```
+- search icon here : https://iconpark.oceanengine.com/official
+- 'How to use' : https://www.npmjs.com/package/@icon-park/svg
 
 ## 폴더 설명
 
 ``` 
 lib/
 │
-├── core/                 
+├── core/       
+│   ├── icons - icon_print.js : 이 파일로 아이콘 SVG 코드 출력해서 아이콘 사용할 것          
 │   ├── constants/        # 앱 전역에서 사용되는 상수들
 │   ├── themes/           # 앱의 테마와 스타일 정의
 │   ├── utils/            # 공통적으로 사용하는 유틸리티 함수들

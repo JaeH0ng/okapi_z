@@ -58,32 +58,32 @@ class _AuthFormState extends State<AuthForm> {
           if (widget.isSignupScreen) ...[
             CustomTextField(
               controller: widget.nameController,
-              icon: Icons.account_circle,
+              icon: Icon(Icons.account_circle),
               hintText: 'User name',
             ),
             const SizedBox(height: 8),
             CustomTextField(
               controller: widget.emailController,
-              icon: Icons.email,
+              icon: Icon(Icons.email),
               hintText: 'Email',
             ),
             const SizedBox(height: 8),
             CustomTextField(
               controller: widget.passwordController,
-              icon: Icons.lock,
+              icon: Icon(Icons.lock),
               hintText: 'Password',
               obscureText: true,
             ),
             const SizedBox(height: 8),
             CustomTextField(
               controller: widget.schoolNameController,
-              icon: Icons.school,
+              icon: Icon(Icons.school),
               hintText: 'School name',
             ),
             const SizedBox(height: 8),
             CustomTextField(
               controller: widget.countryController,
-              icon: Icons.public,
+              icon: Icon(Icons.public),
               hintText: 'Country of origin',
             ),
             const SizedBox(height: 8),
@@ -157,13 +157,13 @@ class _AuthFormState extends State<AuthForm> {
           ] else ...[
             CustomTextField(
               controller: widget.emailController,
-              icon: Icons.email,
+              icon: Icon(Icons.email),
               hintText: 'Email',
             ),
             const SizedBox(height: 8),
             CustomTextField(
               controller: widget.passwordController,
-              icon: Icons.lock,
+              icon: Icon(Icons.lock),
               hintText: 'Password',
               obscureText: true,
             ),
