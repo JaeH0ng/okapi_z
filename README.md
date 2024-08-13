@@ -9,18 +9,15 @@ lib/
 │   ├── auth/              # 예: 인증 기능
 │   │   ├── data/          # 모델, 데이터 소스, 레포지토리
 │   │   │   ├── models/
-│   │   │   ├── repositories/
-│   │   │   └── providers/
-│   │   ├── domain/        # 비즈니스 로직, 유스케이스
+│   │   │   ├── repositories/                           // 필요 : 로그인, 회원가입 API 요청 처리 기능
+│   │   │   └── providers/                              // 필요 : 로그인, 회원가입 상태 관리 provider
+│   │   ├── domain/        # 비즈니스 로직, 유스케이스      // 어떻게 활용하는 폴더일지? 좀더 확인 필요
 │   │   │   ├── entities/
 │   │   │   └── usecases/
 │   │   ├── presentation/  # UI와 관련된 코드
 │   │   │   ├── pages/
-│   │   │   │   └── login_page.dart
 │   │   │   ├── viewmodels/
-│   │   │   │   └── login_viewmodel.dart
 │   │   │   └── widgets/
-│   │   │       └── login_form.dart
 │   ├── home/              # 예: 홈 기능
 │   │   ├── data/
 │   │   ├── domain/

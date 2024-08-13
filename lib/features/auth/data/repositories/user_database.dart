@@ -1,5 +1,9 @@
 import 'package:okapi_z/features/auth/data/models/user.dart';
 
+// 여기 작성할 코드
+// 로그인 API 요청 처리
+// 회원가입 API 요청 처리
+
 class UserDatabase {
   final List<User> _users = [];
 
