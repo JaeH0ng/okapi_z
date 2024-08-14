@@ -30,6 +30,46 @@ CustomTextField(
 - search icon here : https://iconpark.oceanengine.com/official
 - 'How to use' : https://www.npmjs.com/package/@icon-park/svg
 
+## while debugging, we can use these dummy users
+```
+UserModel(
+      userId: 1,
+      email: 'user1@example.com',
+      name: 'John Doe',
+      profileImagePath: '/assets/images/user1.png',
+      birth: '1990-01-01',
+      gender: 'Male',
+      country: 'USA',
+      ageRange: '30~',
+      password: 'password123',
+      schoolName: 'University A',
+    ),
+    UserModel(
+      userId: 2,
+      email: 'user2@example.com',
+      name: 'Jane Smith',
+      profileImagePath: '/assets/images/user2.png',
+      birth: '1992-05-12',
+      gender: 'Female',
+      country: 'Canada',
+      ageRange: '30~',
+      password: 'password123',
+      schoolName: 'University B',
+    ),
+    UserModel(
+      userId: 3,
+      email: 'user3@example.com',
+      name: 'Alice Johnson',
+      profileImagePath: '/assets/images/user3.png',
+      birth: '1995-09-15',
+      gender: 'Female',
+      country: 'UK',
+      ageRange: '25~30',
+      password: 'password123',
+      schoolName: 'University C',
+    )
+```
+
 ## 폴더 설명
 
 ``` 
