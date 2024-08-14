@@ -10,6 +10,8 @@ class AuthForm extends StatefulWidget {
   final TextEditingController countryController;
   final TextEditingController passwordController;
   final TextEditingController schoolNameController;
+  final VoidCallback onSignIn;
+  final VoidCallback onSignUp;
 
   const AuthForm({
     super.key,
@@ -19,6 +21,8 @@ class AuthForm extends StatefulWidget {
     required this.countryController,
     required this.passwordController,
     required this.schoolNameController,
+    required this.onSignIn,
+    required this.onSignUp,
   });
 
   @override

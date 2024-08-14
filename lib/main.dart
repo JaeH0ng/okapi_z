@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:okapi_z/features/home/presentation/home_page.dart';
 import 'package:okapi_z/features/auth/presentation/pages/login_signup_page.dart';
 import 'package:okapi_z/features/auth/data/providers/authStatus.dart';
 
@@ -27,7 +26,9 @@ class MyApp extends ConsumerWidget {
         useMaterial3: true,
       ),
       // authStatusProvider가 true이면 home을, false이면 로그인 페이지를 보여준다.
-      home: isAuthenticated ? const HomePage() : const LoginSignupScreen(),
+      home: isAuthenticated
+          ? const LoginSignupScreen() // 로그인 전에는 user가 필요 없음
+          : const LoginSignupScreen(),
     );
   }
 }

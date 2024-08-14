@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:okapi_z/features/auth/data/models/user_model.dart';
 import 'package:okapi_z/features/home/data/providers/bottom_navigation_provider.dart';
 import 'package:okapi_z/features/auth/presentation/widgets/adventure_type_filter.dart';
 import 'package:okapi_z/features/auth/presentation/widgets/search_field.dart';
 
 class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
+  final UserModel user; // user 추가
+
+  const HomePage({super.key, required this.user}); // required로 user 받도록 수정
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
