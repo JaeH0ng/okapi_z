@@ -6,9 +6,9 @@ import 'package:okapi_z/features/auth/presentation/widgets/adventure_type_filter
 import 'package:okapi_z/features/auth/presentation/widgets/search_field.dart';
 
 class HomePage extends ConsumerWidget {
-  final UserModel user; // user 추가
+  final UserModel user;
 
-  const HomePage({super.key, required this.user}); // required로 user 받도록 수정
+  const HomePage({super.key, required this.user});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,18 +21,21 @@ class HomePage extends ConsumerWidget {
       body: IndexedStack(
         index: currentIndex,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SearchField(
-                controller: searchController,
-                icon: Icons.calendar_month_rounded,
-                hintText: 'Search',
-              ),
-              AdventureTypeSelector(onSelected: (index) {
-                print('Selected index: $index');
-              }),
-            ],
+          SingleChildScrollView(
+            // Column을 SingleChildScrollView로 감쌈
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SearchField(
+                  controller: searchController,
+                  icon: Icons.calendar_month_rounded,
+                  hintText: 'Search',
+                ),
+                AdventureTypeSelector(onSelected: (index) {
+                  print('Selected index: $index');
+                }),
+              ],
+            ),
           ),
           const Center(
               child: Text(
@@ -66,11 +69,10 @@ class HomePage extends ConsumerWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle:
-            TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+            const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
         selectedItemColor: Colors.black,
         currentIndex: currentIndex,
         onTap: (index) {
-          // 상태 업데이트: 선택된 인덱스로 상태를 업데이트합니다.
           ref.read(bottomNavProvider.notifier).update((state) => index);
         },
         items: const [
