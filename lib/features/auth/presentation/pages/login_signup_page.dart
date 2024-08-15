@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:okapi_z/core/constants/palatte.dart';
 import 'package:okapi_z/features/auth/data/models/user_model.dart';
-import 'package:okapi_z/features/home/presentation/home_page.dart';
+import 'package:okapi_z/features/home/presentation/main_page.dart';
 import 'package:okapi_z/features/auth/presentation/widgets/auth_form.dart';
 import 'package:okapi_z/features/auth/data/repositories/user_database.dart';
 
@@ -64,7 +64,7 @@ class _LoginSignupScreenState extends ConsumerState<LoginSignupScreen>
         // 회원가입 성공 후 홈 페이지로 이동
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomePage(user: newUser)),
+          MaterialPageRoute(builder: (context) => MainPage(user: newUser)),
         );
       } catch (e) {
         // 회원가입 에러 처리
@@ -85,7 +85,7 @@ class _LoginSignupScreenState extends ConsumerState<LoginSignupScreen>
         // 로그인 성공 후 홈 페이지로 이동
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomePage(user: user)),
+          MaterialPageRoute(builder: (context) => MainPage(user: user)),
         );
       } catch (e) {
         // 로그인 에러 처리
