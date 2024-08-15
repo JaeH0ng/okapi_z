@@ -34,7 +34,9 @@ dev_dependencies:
   riverpod_lint: ^2.3.12
 
 flutter:
-
+  assets:
+    - assets/icons/bottom_nav_bar/
+    - assets/icons/
   uses-material-design: true
 
 dependency_overrides:

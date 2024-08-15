@@ -4,6 +4,7 @@ import 'package:okapi_z/features/auth/data/models/user_model.dart';
 import 'package:okapi_z/features/home/data/providers/bottom_navigation_provider.dart';
 import 'package:okapi_z/features/auth/presentation/widgets/adventure_type_filter.dart';
 import 'package:okapi_z/features/auth/presentation/widgets/search_field.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomePage extends ConsumerWidget {
   final UserModel user;
@@ -46,21 +47,14 @@ class HomePage extends ConsumerWidget {
           )),
           const Center(
               child: Text(
-            'Chat',
+            'Message',
             style: TextStyle(
               color: Colors.black,
             ),
           )),
           const Center(
               child: Text(
-            'Profile',
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          )),
-          const Center(
-              child: Text(
-            'More',
+            'My Page',
             style: TextStyle(
               color: Colors.black,
             ),
@@ -68,6 +62,7 @@ class HomePage extends ConsumerWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         selectedLabelStyle:
             const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
         selectedItemColor: Colors.black,
@@ -75,21 +70,39 @@ class HomePage extends ConsumerWidget {
         onTap: (index) {
           ref.read(bottomNavProvider.notifier).update((state) => index);
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
+              icon: SvgPicture.asset(
+                'assets/icons/bottom_nav_bar/tab1_home_not_selected.svg',
+              ),
+              activeIcon: SvgPicture.asset(
+                'assets/icons/bottom_nav_bar/tab1_home_selected.svg',
               ),
               label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add, color: Colors.black), label: 'Create'),
+              icon: SvgPicture.asset(
+                'assets/icons/bottom_nav_bar/tab2_add_one_not_selected.svg',
+              ),
+              activeIcon: SvgPicture.asset(
+                'assets/icons/bottom_nav_bar/tab2_add_one_selected.svg',
+              ),
+              label: 'Create'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.chat, color: Colors.black), label: 'Chat'),
+              icon: SvgPicture.asset(
+                'assets/icons/bottom_nav_bar/tab3_communication_not_selected.svg',
+              ),
+              activeIcon: SvgPicture.asset(
+                'assets/icons/bottom_nav_bar/tab3_communication_selected.svg',
+              ),
+              label: 'Message'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person, color: Colors.black), label: 'Profile'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.more_horiz, color: Colors.black), label: 'More'),
+              icon: SvgPicture.asset(
+                'assets/icons/bottom_nav_bar/tab4_me_not_selected.svg',
+              ),
+              activeIcon: SvgPicture.asset(
+                'assets/icons/bottom_nav_bar/tab4_me_selected.svg',
+              ),
+              label: 'My Page'),
         ],
       ),
     );
