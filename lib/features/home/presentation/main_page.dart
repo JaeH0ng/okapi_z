@@ -30,9 +30,9 @@ class MainPage extends ConsumerWidget {
     }
 
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Home'),
-      // ),
+      appBar: AppBar(
+        title: const Text('Okapi-Z'),
+      ),
       body: PageView(
         controller: pageController,
         onPageChanged: _onPageChanged,
@@ -57,6 +57,7 @@ class MainPage extends ConsumerWidget {
             ),
             activeIcon: SvgPicture.asset(
               'assets/icons/bottom_nav_bar/home.svg',
+              semanticsLabel: 'Home',
             ),
             label: 'Home',
           ),
