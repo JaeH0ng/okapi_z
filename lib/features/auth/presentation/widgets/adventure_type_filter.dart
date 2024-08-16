@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class AdventureTypeSelector extends StatefulWidget {
   final ValueChanged<int> onSelected;
@@ -13,11 +14,36 @@ class _AdventureTypeSelectorState extends State<AdventureTypeSelector> {
   int _selectedType = 0;
 
   final List<Map<String, dynamic>> _adventureTypes = [
-    {"icon": Icons.apps, "label": "All"},
-    {"icon": Icons.terrain, "label": "Hiking"},
-    {"icon": Icons.directions_bike, "label": "Cycling"},
-    {"icon": Icons.gamepad, "label": "Board game"},
-    {"icon": Icons.theater_comedy, "label": "Culture"},
+    {
+      "icon": SvgPicture.asset(
+        'assets/icons/all_adventures.svg',
+      ),
+      "label": "All"
+    },
+    {
+      "icon": SvgPicture.asset(
+        'assets/icons/hiking_adventure.svg',
+      ),
+      "label": "Hiking"
+    },
+    {
+      "icon": SvgPicture.asset(
+        'assets/icons/cycling_adventure.svg',
+      ),
+      "label": "Cycling"
+    },
+    {
+      "icon": SvgPicture.asset(
+        'assets/icons/board_game_adventure.svg',
+      ),
+      "label": "Board game"
+    },
+    {
+      "icon": SvgPicture.asset(
+        'assets/icons/culture_adventure.svg',
+      ),
+      "label": "Culture"
+    },
   ];
 
   @override
@@ -41,31 +67,10 @@ class _AdventureTypeSelectorState extends State<AdventureTypeSelector> {
               },
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                decoration: BoxDecoration(
-                  color:
-                      _selectedType == index ? Colors.grey[300] : Colors.white,
-                  borderRadius: BorderRadius.circular(12.0),
-                  boxShadow: [
-                    if (_selectedType == index)
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: const Offset(0, 3),
-                      ),
-                  ],
-                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
-                      _adventureTypes[index]["icon"],
-                      size: 40.0,
-                      color:
-                          _selectedType == index ? Colors.black : Colors.grey,
-                    ),
+                    _adventureTypes[index]["icon"],
                     const SizedBox(height: 4.0),
                     Text(
                       _adventureTypes[index]["label"],
@@ -73,6 +78,7 @@ class _AdventureTypeSelectorState extends State<AdventureTypeSelector> {
                         color:
                             _selectedType == index ? Colors.black : Colors.grey,
                         fontWeight: FontWeight.bold,
+                        fontSize: 14.0,
                       ),
                     ),
                   ],
