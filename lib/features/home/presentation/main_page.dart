@@ -53,37 +53,37 @@ class MainPage extends ConsumerWidget {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/icons/bottom_nav_bar/tab1_home_not_selected.svg',
+              'assets/icons/bottom_nav_bar/home_gray.svg',
             ),
             activeIcon: SvgPicture.asset(
-              'assets/icons/bottom_nav_bar/tab1_home_selected.svg',
+              'assets/icons/bottom_nav_bar/home.svg',
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/icons/bottom_nav_bar/tab2_add_one_not_selected.svg',
+              'assets/icons/bottom_nav_bar/create_gray.svg',
             ),
             activeIcon: SvgPicture.asset(
-              'assets/icons/bottom_nav_bar/tab2_add_one_selected.svg',
+              'assets/icons/bottom_nav_bar/create.svg',
             ),
             label: 'Create',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/icons/bottom_nav_bar/tab3_communication_not_selected.svg',
+              'assets/icons/bottom_nav_bar/chat_gray.svg',
             ),
             activeIcon: SvgPicture.asset(
-              'assets/icons/bottom_nav_bar/tab3_communication_selected.svg',
+              'assets/icons/bottom_nav_bar/chat.svg',
             ),
             label: 'Message',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/icons/bottom_nav_bar/tab4_me_not_selected.svg',
+              'assets/icons/bottom_nav_bar/user_gray.svg',
             ),
             activeIcon: SvgPicture.asset(
-              'assets/icons/bottom_nav_bar/tab4_me_selected.svg',
+              'assets/icons/bottom_nav_bar/user.svg',
             ),
             label: 'My Page',
           ),
