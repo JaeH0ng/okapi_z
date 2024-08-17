@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:okapi_z/core/constants/palatte.dart';
 
 class SearchField extends StatelessWidget {
@@ -20,17 +21,23 @@ class SearchField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
-          suffixIcon: Icon(
-            icon,
-            color: Palette.iconColor,
+          filled: true,
+          fillColor: Palette.inputGray,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide.none,
           ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Color.fromARGB(255, 129, 131, 133)),
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(15),
+            child: SvgPicture.asset(
+              'assets/icons/search_input.svg',
+            ),
           ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Palette.textColor1),
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.all(10),
+            child: SvgPicture.asset(
+              'assets/icons/search_calendar.svg',
+            ),
           ),
           hintText: hintText,
           hintStyle: const TextStyle(fontSize: 14, color: Palette.textColor1),
