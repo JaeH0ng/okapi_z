@@ -22,31 +22,49 @@ class EventsListWidget extends StatelessWidget {
       "price": "₩ 3,000",
       "participants": "3/4",
     },
+    {
+      "image":
+          'assets/images/recommended_adventure.png', // Replace with actual image URL or asset
+      "label": "Hiking",
+      "title": "Bukhansan Hiking Adventure",
+      "location": "Seoul Mapo",
+      "date": "August 8 (Wed)",
+      "price": "₩ 3,000",
+      "participants": "3/4",
+    },
+    {
+      "image":
+          'assets/images/recommended_adventure.png', // Replace with actual image URL or asset
+      "label": "Hiking",
+      "title": "Bukhansan Hiking Adventure",
+      "location": "Seoul Mapo",
+      "date": "August 8 (Wed)",
+      "price": "₩ 3,000",
+      "participants": "3/4",
+    },
     // Add more events as needed
   ];
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 300.0,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              "Events",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            "Events",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          ListView.builder(
-            itemCount: events.length,
-            itemBuilder: (context, index) {
-              return _buildEventCard(events[index]);
-            },
-          ),
-        ],
-      ),
+        ),
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: events.length,
+          itemBuilder: (context, index) {
+            return _buildEventCard(events[index]);
+          },
+        ),
+      ],
     );
   }
 
