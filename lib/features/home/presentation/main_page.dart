@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:okapi_z/features/create/presentation/pages/create_page.dart';
-import 'package:okapi_z/features/auth/data/models/user_model.dart';
-import 'package:okapi_z/features/message/presentation/pages/message_page.dart';
-import 'package:okapi_z/features/home/data/providers/bottom_navigation_provider.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:okapi_z/features/myPage/presentation/pages/my_page.dart';
+import 'package:okapi_z/features/auth/data/models/user_model.dart';
+import 'package:okapi_z/features/create/presentation/pages/create_event.dart';
+import 'package:okapi_z/features/home/data/providers/bottom_navigation_provider.dart';
 import 'package:okapi_z/features/home/presentation/home_page.dart';
+import 'package:okapi_z/features/message/presentation/pages/message_page.dart';
+import 'package:okapi_z/features/myPage/presentation/pages/my_page.dart';
 
 // THIS IS MAIN PAGE
 
@@ -38,7 +38,7 @@ class MainPage extends ConsumerWidget {
         onPageChanged: _onPageChanged,
         children: [
           HomePage(),
-          CreatePage(),
+          CreateEventPage(),
           MessagePage(),
           MyPage(),
         ],
