@@ -28,6 +28,8 @@ class RecommendedWidget extends StatelessWidget {
     },
   ];
 
+  RecommendedWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -57,7 +59,7 @@ class RecommendedWidget extends StatelessWidget {
   Widget _buildRecommendationCard(Map<String, dynamic> recommendation) {
     return Container(
       width: 200, // Adjust the width based on your design
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -66,7 +68,7 @@ class RecommendedWidget extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -74,7 +76,7 @@ class RecommendedWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
             child: Image(
               image: AssetImage(recommendation["image"]),
               height: 120, // Adjust based on your design
@@ -88,31 +90,27 @@ class RecommendedWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 4.0, horizontal: 8.0),
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Text(
                     recommendation["label"],
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                    style: const TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Text(
                   recommendation["title"],
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 4.0),
+                const SizedBox(height: 4.0),
                 Text(
-                  recommendation["location"],
-                  style: TextStyle(color: Colors.grey[600], fontSize: 12),
-                ),
-                SizedBox(height: 2.0),
-                Text(
-                  recommendation["date"],
+                  "${recommendation["location"]} • ${recommendation["date"]}",
                   style: TextStyle(color: Colors.grey[600], fontSize: 12),
                 ),
               ],

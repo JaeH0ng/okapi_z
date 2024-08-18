@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class EventsListWidget extends StatelessWidget {
   final List<Map<String, dynamic>> events = [
     {
-      "image":
-          'assets/images/recommended_adventure.png', // Replace with actual image URL or asset
+      "image": 'assets/images/recommended_adventure.png',
       "label": "Hiking",
       "title": "Bukhansan Hiking Adventure",
       "location": "Seoul Mapo",
@@ -13,8 +13,7 @@ class EventsListWidget extends StatelessWidget {
       "participants": "3/4",
     },
     {
-      "image":
-          'assets/images/recommended_adventure.png', // Replace with actual image URL or asset
+      "image": 'assets/images/recommended_adventure.png',
       "label": "Hiking",
       "title": "Bukhansan Hiking Adventure",
       "location": "Seoul Mapo",
@@ -23,8 +22,7 @@ class EventsListWidget extends StatelessWidget {
       "participants": "3/4",
     },
     {
-      "image":
-          'assets/images/recommended_adventure.png', // Replace with actual image URL or asset
+      "image": 'assets/images/recommended_adventure.png',
       "label": "Hiking",
       "title": "Bukhansan Hiking Adventure",
       "location": "Seoul Mapo",
@@ -33,8 +31,7 @@ class EventsListWidget extends StatelessWidget {
       "participants": "3/4",
     },
     {
-      "image":
-          'assets/images/recommended_adventure.png', // Replace with actual image URL or asset
+      "image": 'assets/images/recommended_adventure.png',
       "label": "Hiking",
       "title": "Bukhansan Hiking Adventure",
       "location": "Seoul Mapo",
@@ -42,8 +39,27 @@ class EventsListWidget extends StatelessWidget {
       "price": "₩ 3,000",
       "participants": "3/4",
     },
-    // Add more events as needed
+        {
+      "image": 'assets/images/recommended_adventure.png',
+      "label": "Hiking",
+      "title": "Bukhansan Hiking Adventure",
+      "location": "Seoul Mapo",
+      "date": "August 8 (Wed)",
+      "price": "₩ 3,000",
+      "participants": "3/4",
+    },
+    {
+      "image": 'assets/images/recommended_adventure.png',
+      "label": "Hiking",
+      "title": "Bukhansan Hiking Adventure",
+      "location": "Seoul Mapo",
+      "date": "August 8 (Wed)",
+      "price": "₩ 3,000",
+      "participants": "3/4",
+    },
   ];
+
+  EventsListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +75,7 @@ class EventsListWidget extends StatelessWidget {
         ),
         ListView.builder(
           shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: events.length,
           itemBuilder: (context, index) {
             return _buildEventCard(events[index]);
@@ -70,8 +87,8 @@ class EventsListWidget extends StatelessWidget {
 
   Widget _buildEventCard(Map<String, dynamic> event) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-      padding: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -80,7 +97,7 @@ class EventsListWidget extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -90,50 +107,57 @@ class EventsListWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             child: Image(
               image: AssetImage(event["image"]),
-              height: 60, // Adjust based on your design
-              width: 60, // Adjust based on your design
+              height: 100.0,
+              width: 100.0,
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(width: 12.0),
+          const SizedBox(width: 12.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 4.0, horizontal: 8.0),
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Text(
                     event["label"],
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                    style: const TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                 ),
-                SizedBox(height: 4.0),
+                const SizedBox(height: 4.0),
                 Text(
                   event["title"],
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 4.0),
+                const SizedBox(height: 4.0),
                 Text(
                   "${event["location"]} • ${event["date"]}",
                   style: TextStyle(color: Colors.grey[600], fontSize: 12),
                 ),
-                SizedBox(height: 4.0),
+                const SizedBox(height: 4.0),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       event["price"],
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
+                    const SizedBox(width: 10.0),
+                    SvgPicture.asset(
+                      'assets/icons/user_small.svg',
+                      height: 16,
+                    ),
+                    const SizedBox(width: 2.0),
                     Text(
                       event["participants"],
                       style: TextStyle(color: Colors.grey[600], fontSize: 12),
