@@ -9,25 +9,30 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SearchField(
-              controller: searchController,
-              icon: Icons.calendar_month_rounded,
-              hintText: 'Search',
-            ),
-            AdventureTypeSelector(
-              onSelected: (index) {
-                print('Selected index: $index');
-              },
-            ),
-            RecommendedWidget(),
-            EventsListWidget(),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Okapi-Z'),
+      ),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SearchField(
+                controller: searchController,
+                icon: Icons.calendar_month_rounded,
+                hintText: 'Search',
+              ),
+              AdventureTypeSelector(
+                onSelected: (index) {
+                  print('Selected index: $index');
+                },
+              ),
+              RecommendedWidget(),
+              EventsListWidget(),
+            ],
+          ),
         ),
       ),
     );

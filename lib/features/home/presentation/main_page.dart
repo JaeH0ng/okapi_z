@@ -30,9 +30,6 @@ class MainPage extends ConsumerWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Okapi-Z'),
-      ),
       body: PageView(
         controller: pageController,
         onPageChanged: _onPageChanged,
