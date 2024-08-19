@@ -5,7 +5,7 @@ import 'package:okapi_z/features/auth/data/models/user_model.dart';
 import 'package:okapi_z/features/create/presentation/pages/create_event.dart';
 import 'package:okapi_z/features/home/data/providers/bottom_navigation_provider.dart';
 import 'package:okapi_z/features/home/presentation/home_page.dart';
-import 'package:okapi_z/features/message/presentation/pages/message_page.dart';
+import 'package:okapi_z/features/message/presentation/pages/chat_list_screen.dart';
 import 'package:okapi_z/features/myPage/presentation/pages/my_page.dart';
 
 // THIS IS MAIN PAGE
@@ -39,7 +39,7 @@ class MainPage extends ConsumerWidget {
         children: [
           HomePage(),
           CreateEventPage(),
-          MessagePage(),
+          ChatListScreen(),
           MyPage(),
         ],
       ),

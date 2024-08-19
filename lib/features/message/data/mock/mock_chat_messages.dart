@@ -1,0 +1,58 @@
+import '../models/chat_message.dart';
+
+List<ChatMessage> mockChatMessages = [
+  ChatMessage(
+    messageId: 1,
+    chatroomId: 101,
+    userId: 1001,
+    messageText: "Hello! How are you?",
+    timestamp: DateTime(2023, 8, 19, 10, 30),
+    filePath: null,
+    messageType: MessageType.text,
+  ),
+  ChatMessage(
+    messageId: 2,
+    chatroomId: 101,
+    userId: 1002,
+    messageText: "I'm good, thanks! How about you?",
+    timestamp: DateTime(2023, 8, 19, 10, 31),
+    filePath: null,
+    messageType: MessageType.text,
+  ),
+  ChatMessage(
+    messageId: 3,
+    chatroomId: 101,
+    userId: 1001,
+    messageText: "I'm doing well, just working on the project.",
+    timestamp: DateTime(2023, 8, 19, 10, 32),
+    filePath: null,
+    messageType: MessageType.text,
+  ),
+  ChatMessage(
+    messageId: 4,
+    chatroomId: 101,
+    userId: 1002,
+    messageText: "Sounds great! Keep it up.",
+    timestamp: DateTime(2023, 8, 19, 10, 33),
+    filePath: null,
+    messageType: MessageType.text,
+  ),
+  ChatMessage(
+    messageId: 5,
+    chatroomId: 101,
+    userId: 1001,
+    messageText: null,
+    timestamp: DateTime(2023, 8, 19, 10, 34),
+    filePath: 'assets/images/sample_image.png',
+    messageType: MessageType.image,
+  ),
+  ChatMessage(
+    messageId: 6,
+    chatroomId: 101,
+    userId: 1002,
+    messageText: null,
+    timestamp: DateTime(2023, 8, 19, 10, 35),
+    filePath: 'assets/videos/sample_video.mp4',
+    messageType: MessageType.video,
+  ),
+];
